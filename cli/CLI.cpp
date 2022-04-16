@@ -2,10 +2,10 @@
 
 void CLI::sort_dir(std::vector<std::shared_ptr<Dir>>& dlist)
 {
-	for (int i = 0; i < dlist.size(); i++)
+	for (size_t i = 0; i < dlist.size(); i++)
 	{
 		int min = i;
-		for (int j = i + 1; j < dlist.size(); j++)
+		for (size_t j = i + 1; j < dlist.size(); j++)
 			if (dlist[j]->title < dlist[min]->title)
 				min = j;
 		std::shared_ptr<Dir> temp = std::move(dlist[i]);
@@ -16,10 +16,10 @@ void CLI::sort_dir(std::vector<std::shared_ptr<Dir>>& dlist)
 
 void CLI::sort_cmds(Dir& dir)
 {
-	for (int i = 1; i < dir.commands.size(); i++)
+	for (size_t i = 1; i < dir.commands.size(); i++)
 	{
 		int min = i;
-		for (int j = i + 1; j < dir.commands.size(); j++)
+		for (size_t j = i + 1; j < dir.commands.size(); j++)
 			if (dir.commands[j].title < dir.commands[min].title)
 				min = j;
 		Command temp = std::move(dir.commands[i]);
@@ -30,7 +30,7 @@ void CLI::sort_cmds(Dir& dir)
 
 int CLI::find_dir(std::string title)
 {
-	for (int i = 0; i < dir_list.size(); i++)
+	for (size_t i = 0; i < dir_list.size(); i++)
 		if (dir_list[i]->title == title)
 			return i;
 	return -1;
@@ -59,6 +59,7 @@ void CLI::add_dir(std::string title, std::string parent)
 		}
 		new_dir->parent = nullptr;
 		cur_dir = title;
+		dir_list.push_back(new_dir);
 	}
 	else // submenu
 	{
@@ -73,24 +74,23 @@ void CLI::add_dir(std::string title, std::string parent)
 			}
 		}
 		new_dir->parent = get_dir(parent);
+		dir_list.push_back(new_dir);
 
 		// adding sub/parent dir commands
 		for (auto& d : dir_list)
 		{
 			if (d->title == parent)
 			{
-				d->commands.push_back({ title, NULL, 0, "__Submenu of: " + d->title });
-				std::cout << "added submenu\n";
-				
+				d->commands.push_back({ title, NULL, 0, "__Submenu of: " + d->title });	
 			}
 			else if (d->title == title)
 			{
-				d->commands.push_back({ parent, NULL, 0, "__Parentmenu of: " + d->title });
+				d->commands.push_back({ parent,NULL,0,"__Parentmenu of: " + d->parent->title });
+				std::cout << "added parent\n";
 
 			}
 		}
 	}
-	dir_list.push_back(new_dir);
 
 	if (dir_list.size() > 1)
 		sort_dir(dir_list);

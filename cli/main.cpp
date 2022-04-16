@@ -16,8 +16,6 @@ int main()
 
 	pCli->add_dir("root");
 	pCli->add_dir("menu", "root");
-	pCli->add_dir("cmd", "menu");
-	
 
 	pCli->add_command(pCli->get_dir("menu"), Command("command", p,1,"command text"));
 

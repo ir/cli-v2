@@ -111,8 +111,6 @@ Dir* CLI::get_dir(std::string title)
 	return nullptr;
 }
 
-
-
 #endif // !__CLI
 
 
