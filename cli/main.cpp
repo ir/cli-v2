@@ -4,20 +4,19 @@
 #include <iostream>
 #include <Windows.h>
 #include "CLI.h"
-
-void p(std::optional<std::string> s)
-{
-	std::cout << s.value() << std::endl;
-}
+#include "CMDS.h"
+#include "output.h"
+      
 
 int main()
 {
 	std::unique_ptr<CLI> pCli = std::make_unique<CLI>();
-
+	
 	pCli->add_dir("root");
 	pCli->add_dir("menu", "root");
-
-	pCli->add_command(pCli->get_dir("menu"), Command("command", p,1,"command text"));
+	pCli->add_dir("menu", "root");
+	pCli->add_command(pCli->get_dir("menu"), Command("command", CMDS::print, 1, "command text"));
+	pCli->add_command(pCli->get_dir("menu"), Command("command", CMDS::print, 1, "command text"));
 
 	while (1)
 	{

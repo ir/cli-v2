@@ -8,6 +8,7 @@
 #include <optional>
 #include <functional>
 #include <algorithm>
+#include "output.h"
 
 // command struct - title, function, argsize (-1 infinite, 0 none, >0 normal), help text
 struct Command {
@@ -35,8 +36,8 @@ struct Dir
 class CLI
 {
 public:
-	CLI() { std::cout << "constructor called\n"; }
-	~CLI() { std::cout << "destructor called\n"; }
+	CLI() {}
+	~CLI() {}
 
 	// vectors
 	std::vector<std::shared_ptr<Dir>> dir_list;
@@ -71,8 +72,7 @@ private:
 
 void CLI::print_help()
 {
-	std::cout<< "list of all commands:\n";
-	
+	output::print(output::C_INFO, "list of all commands:\n");
 	for (const auto& d : dir_list)
 	{
 		if (d->title == cur_dir)
@@ -89,15 +89,11 @@ void CLI::print_help()
 				if (!std::isupper(title.at(0)))
 					title.at(0) = std::toupper(title.at(0));
 
-				std::cout << " " + title + d->commands[i].helptext;
-
-				std::cout << std::endl;
+				output::print(output::C_SUCCESS, " " + title + d->commands[i].helptext + "\n");
 			}
 		}
 	}
-
 	std::cout << std::endl;
-	
 }
 
 // returns dir of title arg if found

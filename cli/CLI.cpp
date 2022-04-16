@@ -42,7 +42,7 @@ void CLI::add_dir(std::string title, std::string parent)
 	// check if args are empty
 	if (title.length() == 0)
 	{
-		std::cout << "[-] Error: Title cannot be empty" << std::endl;
+		output::print(output::C_ERROR, "[-] error: title cannot be empty\n");
 		return;
 	}
 	Command help_cmd = { "help", std::bind(&CLI::print_help,this), 0,"help text"};
@@ -53,7 +53,7 @@ void CLI::add_dir(std::string title, std::string parent)
 		{
 			if (d->parent == nullptr)
 			{
-				std::cout << "[-] Error: Root menu already exists" << std::endl;
+				output::print(output::C_ERROR, "[-] error: root menu already exists\n");
 				return;
 			}
 		}
@@ -69,7 +69,7 @@ void CLI::add_dir(std::string title, std::string parent)
 		{
 			if (d->title == title)
 			{
-				std::cout << "[-] Error: Dir \"" << d->title << "\" already exists" << std::endl;
+				output::print(output::C_ERROR, "[-] error: dir (" + d->title + ") already exists\n");
 				return;
 			}
 		}
@@ -86,8 +86,6 @@ void CLI::add_dir(std::string title, std::string parent)
 			else if (d->title == title)
 			{
 				d->commands.push_back({ parent,NULL,0,"__Parentmenu of: " + d->parent->title });
-				std::cout << "added parent\n";
-
 			}
 		}
 	}
@@ -102,9 +100,24 @@ void CLI::add_command(Dir* dir, Command command)
 		return;
 	else if (command.title.length() > 16)
 		command.title = command.title.substr(0, 16);
-	dir->commands.push_back(command);
 	if (dir->commands.size() > 1)
+	{
+		for (const auto& d : dir->commands)
+		{
+			if (d.title == command.title)
+			{
+				output::print(output::C_ERROR, "[-] command already exists in dir (" + dir->title + ")\n");
+				return;
+			}
+		}
+		dir->commands.push_back(command);
 		sort_cmds(*dir);
+	}
+	else
+	{
+		dir->commands.push_back(command);
+	}
+	
 }
 
 // split string by delimiter
@@ -124,7 +137,7 @@ void CLI::run()
 {
 	// user input
 	std::string input;
-	std::cout << cur_dir << " $ ";
+	output::print(output::C_TEXT, cur_dir + " $ ");
 	std::getline(std::cin, input);
 	// cleanup
 	std::vector<std::string> current_input = split(input, ' ');
@@ -147,12 +160,12 @@ void CLI::run()
 	{
 		if (input_size > (size_t)dir_list[ind]->commands[i].argsize &&
 			dir_list[ind]->commands[i].title == command) {
-			std::cout << "too many arguments\n\n";
+			output::print(output::C_ERROR, "too many arguments\n");
 			return;
 		}
 		else if (input_size < 1 && dir_list[ind]->commands[i].argsize > 0 &&
 			dir_list[ind]->commands[i].title == command) {
-			std::cout << "not enough arguments\n\n";
+			output::print(output::C_ERROR, "not enough arguments\n");
 			return;
 		}
 	}
@@ -201,7 +214,7 @@ void CLI::run()
 			{
 				if (dd->parent != nullptr && command == dd->parent->title)
 				{
-					std::cout << "[?] new dir: " << dd->parent->title << "\n\n";
+					output::print(output::C_SUCCESS, "[?] new dir: " + dd->parent->title + "\n");
 					cur_dir = dd->parent->title;
 					print_help();
 					return;
@@ -209,7 +222,7 @@ void CLI::run()
 				else if ((command == dd->title && dd->parent->title == dir->title)
 					&& dd->title != dir->title)
 				{
-					std::cout << "[?] new dir: " << command << "\n\n";
+					output::print(output::C_SUCCESS, "[?] new dir: " + command + "\n");
 					cur_dir = command;
 					print_help();
 					return;
@@ -217,6 +230,7 @@ void CLI::run()
 			}
 		}
 	}
-	std::cout << "command \"" << command << "\" not found\n\n";
+	output::print(output::C_ERROR, "command \"" + command + "\" not found\n\n");
+	
 }
 
