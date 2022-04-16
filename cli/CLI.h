@@ -51,9 +51,8 @@ public:
 
 	// input handler
 	void run();
-
+	
 	// pub cmds
-	void help(std::optional<std::string> s = "");
 
 private:
 	std::string cur_dir;
@@ -67,7 +66,7 @@ private:
 	// split string by delimiter
 	std::vector<std::string> split(std::string str, char delimiter);
 	// priv cmds
-	void printhelp_cmd(std::optional<std::string> s);
+
 };
 
 void CLI::print_help()

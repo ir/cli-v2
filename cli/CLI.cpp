@@ -36,10 +36,6 @@ int CLI::find_dir(std::string title)
 	return -1;
 }
 
-void CLI::printhelp_cmd(std::optional<std::string> s)
-{
-	std::cout << dir_list[0]->title << std::endl;
-}
 
 void CLI::add_dir(std::string title, std::string parent)
 {
@@ -222,9 +218,5 @@ void CLI::run()
 		}
 	}
 	std::cout << "command \"" << command << "\" not found\n\n";
-}
-
-void CLI::help(std::optional<std::string> s)
-{
 }
 
