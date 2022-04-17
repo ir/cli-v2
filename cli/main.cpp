@@ -14,10 +14,8 @@ int main()
 	
 	pCli->add_dir("root");
 	pCli->add_dir("menu", "root");
-	pCli->add_dir("menu", "root");
 	pCli->add_command(pCli->get_dir("menu"), Command("command", CMDS::print, 1, "command text"));
-	pCli->add_command(pCli->get_dir("menu"), Command("command", CMDS::print, 1, "command text"));
-
+	
 	while (1)
 	{
 		pCli->run();
