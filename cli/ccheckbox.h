@@ -15,9 +15,9 @@ public:
 	inline std::string display() override {
 		std::string output = "[ ] " + name;
 		if (data)
-			output[1] = (char)"X";
+			output[1] = 'X';
 		else	  
-			output[1] = (char)" ";
+			output[1] = ' ';
 		return output;
 	}
 	
