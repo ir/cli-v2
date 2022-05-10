@@ -7,7 +7,11 @@
 #include "CMDS.h"
 #include "output.h"
 #include "mouse.h"
-
+#include "cmenu.h"
+void func()
+{
+	std::cout << "hello from func\n";
+}
 int main()
 {
 	std::unique_ptr<CLI> pCli = std::make_unique<CLI>();
@@ -18,7 +22,7 @@ int main()
 	pCli->add_command(pCli->get_dir("menu"), Command("title", CMDS::console::change_title, 16, "changes the title of the console"));
 	pCli->add_command(pCli->get_dir("root"), Command("inject", CMDS::dll::load, 0, "injects dll"));
 	
-	
+
 	while (!GetAsyncKeyState(VK_ESCAPE) && 1)
 	{
 		pCli->run();

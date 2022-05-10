@@ -14,7 +14,7 @@ public:
 	
 	inline std::string display() override {
 		std::string output = "[ ] " + name;
-		if (*data)
+		if (data)
 			output[1] = (char)"X";
 		else	  
 			output[1] = (char)" ";
@@ -22,12 +22,12 @@ public:
 	}
 	
 	inline void call() override {
-		*data = !*data;
+		data = !data;
 		func();
 	}
 
 private:
-	bool* data = false;
+	bool data = false;
 	std::string name;
 	std::function<void()> func;
 };

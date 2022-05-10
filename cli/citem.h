@@ -15,7 +15,7 @@ public:
 	~citem() {}
 	
 	// display
-	inline virtual std::string display() {}
+	inline virtual std::string display() { return ""; }
 	// calling
 	inline virtual void call() {}
 
