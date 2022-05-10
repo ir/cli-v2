@@ -45,7 +45,7 @@ void CLI::add_dir(std::string title, std::string parent)
 		output::print(output::C_ERROR, "[-] error: title cannot be empty\n");
 		return;
 	}
-	Command help_cmd = { "help", std::bind(&CLI::print_help,this), 0,"help text"};
+	Command help_cmd = { "help", std::bind(&CLI::print_help,this), 0,"Displays all available commands"};
 	std::shared_ptr<Dir> new_dir = std::make_shared<Dir>(title, std::vector<Command>({ help_cmd }));
 	if (parent == "") // root menu
 	{
@@ -85,7 +85,7 @@ void CLI::add_dir(std::string title, std::string parent)
 			}
 			else if (d->title == title)
 			{
-				d->commands.push_back({ parent,NULL,0,"__Parentmenu of: " + d->parent->title });
+				d->commands.push_back({ parent,NULL,0,"__Parentmenu of: " + d->title });
 			}
 		}
 	}

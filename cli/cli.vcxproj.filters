@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\misc">
+      <UniqueIdentifier>{6f8d3323-1608-4f79-a028-ac0b100bee69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\misc">
+      <UniqueIdentifier>{6f184634-83cd-4ecb-89d4-6ab7491b1cbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\misc\menu">
+      <UniqueIdentifier>{23aa33d7-1dad-4d9a-ad4a-9f5b60381361}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\misc\menu">
+      <UniqueIdentifier>{3cd438b3-8d9f-47c0-b0b3-59955ef50e4b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -22,21 +34,39 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CMDS.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="mouse.cpp">
+      <Filter>Source Files\misc</Filter>
     </ClCompile>
     <ClCompile Include="output.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cmenu.cpp">
+      <Filter>Source Files\misc\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="citem.cpp">
+      <Filter>Source Files\misc\menu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CLI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CMDS.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="output.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CMDS.h">
+      <Filter>Header Files\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="mouse.h">
+      <Filter>Header Files\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="cmenu.h">
+      <Filter>Header Files\misc\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="citem.h">
+      <Filter>Header Files\misc\menu</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

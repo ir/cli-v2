@@ -23,7 +23,7 @@ namespace output
 	
 	void print(int type, std::string data);
 
-	void print(rgb color, std::string data);
+	//void print(rgb color, std::string data);
 	
 }
 

@@ -6,7 +6,7 @@
 #include "CLI.h"
 #include "CMDS.h"
 #include "output.h"
-      
+#include "mouse.h"
 
 int main()
 {
@@ -14,9 +14,12 @@ int main()
 	
 	pCli->add_dir("root");
 	pCli->add_dir("menu", "root");
-	pCli->add_command(pCli->get_dir("menu"), Command("command", CMDS::print, 1, "command text"));
+	pCli->add_command(pCli->get_dir("menu"), Command("print", CMDS::print, 16, "prints a message"));
+	pCli->add_command(pCli->get_dir("menu"), Command("title", CMDS::console::change_title, 16, "changes the title of the console"));
+	pCli->add_command(pCli->get_dir("root"), Command("inject", CMDS::dll::load, 0, "injects dll"));
 	
-	while (1)
+	
+	while (!GetAsyncKeyState(VK_ESCAPE) && 1)
 	{
 		pCli->run();
 	}

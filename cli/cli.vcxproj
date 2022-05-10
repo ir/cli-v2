@@ -141,14 +141,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="citem.cpp" />
     <ClCompile Include="CLI.cpp" />
     <ClCompile Include="CMDS.cpp" />
+    <ClCompile Include="cmenu.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mouse.cpp" />
     <ClCompile Include="output.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="citem.h" />
     <ClInclude Include="CLI.h" />
     <ClInclude Include="CMDS.h" />
+    <ClInclude Include="cmenu.h" />
+    <ClInclude Include="mouse.h" />
     <ClInclude Include="output.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
