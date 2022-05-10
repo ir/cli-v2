@@ -48,6 +48,15 @@
     <ClCompile Include="citem.cpp">
       <Filter>Source Files\misc\menu</Filter>
     </ClCompile>
+    <ClCompile Include="ccheckbox.cpp">
+      <Filter>Source Files\misc\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="cbutton.cpp">
+      <Filter>Source Files\misc\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="cslider.cpp">
+      <Filter>Source Files\misc\menu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CLI.h">
@@ -66,6 +75,15 @@
       <Filter>Header Files\misc\menu</Filter>
     </ClInclude>
     <ClInclude Include="citem.h">
+      <Filter>Header Files\misc\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="ccheckbox.h">
+      <Filter>Header Files\misc\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="cbutton.h">
+      <Filter>Header Files\misc\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="cslider.h">
       <Filter>Header Files\misc\menu</Filter>
     </ClInclude>
   </ItemGroup>
