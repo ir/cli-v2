@@ -15,7 +15,7 @@ void cmenu::setup()
 	std::string title = this->title;
 	cbutton cb1 = cbutton("change title", [title]() {SetConsoleTitleA((LPCSTR)title.c_str()); });
 
-	cdropbox cd = cdropbox("dropbox1", { &cdcb, &cdcb2 });
+	cdropbox cd = cdropbox("dropbox1", { &cdcb, &cdcb2, &cs });
 
 	this->add_tabs({ "main","misc","other" });
 

@@ -137,12 +137,11 @@ public:
 			return []() {; };
 		}
 
-		if (len >= 0 && len <= 100) {
+		if (len >= 0 && len <= 3) {
 			if (!isdigit(input[0]))
 				return []() {; };
-			int id = std::stoi(input); // converted input
-
-			*value = id;
+			if (std::stoi(input) >= 0 && std::stoi(input) <= 100)
+				*value = std::stoi(input);
 		}
 		return []() {; };
 	}
@@ -349,15 +348,14 @@ public:
 	// run
 	inline void run() {
 		// input
-		
+		system("cls");
 		while (cur_input != "exit") {
 			this->draw();
 			this->input();
+			// can probably figure out a better way to do this 
+			system("cls");
 		}
 		this->~cmenu();
-		// error handling
-		// draw
-		// call
 	}
 
 	/*
