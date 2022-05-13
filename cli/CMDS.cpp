@@ -15,6 +15,12 @@ void CMDS::console::change_title(std::optional<std::string> data)
 	}
 }
 
+void CMDS::cm::setup(std::optional<std::string> data)
+{
+	std::shared_ptr<cmenu> pMenu = std::make_shared<cmenu>("cumhook");
+
+	pMenu->setup();
+}
 
 void CMDS::dll::load(std::optional<std::string> data)
 {

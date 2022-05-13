@@ -18,10 +18,12 @@ int main()
 	
 	pCli->add_dir("root");
 	pCli->add_dir("menu", "root");
-	pCli->add_command(pCli->get_dir("menu"), Command("print", CMDS::print, 16, "prints a message"));
-	pCli->add_command(pCli->get_dir("menu"), Command("title", CMDS::console::change_title, 16, "changes the title of the console"));
+	pCli->add_command(pCli->get_dir("menu"), Command("print", CMDS::print, -1, "prints a message"));
+	pCli->add_command(pCli->get_dir("menu"), Command("title", CMDS::console::change_title, -1, "changes the title of the console"));
 	pCli->add_command(pCli->get_dir("root"), Command("inject", CMDS::dll::load, 0, "injects dll"));
 	
+	pCli->add_command(pCli->get_dir("root"), Command("cmenu", CMDS::cm::setup, 0, "poop menu"));
+
 
 	while (!GetAsyncKeyState(VK_ESCAPE) && 1)
 	{

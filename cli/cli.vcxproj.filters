@@ -25,6 +25,12 @@
     <Filter Include="Source Files\misc\menu">
       <UniqueIdentifier>{3cd438b3-8d9f-47c0-b0b3-59955ef50e4b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\misc\mouse/kb">
+      <UniqueIdentifier>{80a8f912-7864-437d-b06e-36cacf6f0a07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\misc\mouse/kb">
+      <UniqueIdentifier>{3b0c19aa-90c7-4d48-a3f0-ef9c6f9f05ea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -36,26 +42,14 @@
     <ClCompile Include="CMDS.cpp">
       <Filter>Source Files\misc</Filter>
     </ClCompile>
-    <ClCompile Include="mouse.cpp">
-      <Filter>Source Files\misc</Filter>
-    </ClCompile>
-    <ClCompile Include="output.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="cmenu.cpp">
       <Filter>Source Files\misc\menu</Filter>
     </ClCompile>
-    <ClCompile Include="citem.cpp">
-      <Filter>Source Files\misc\menu</Filter>
+    <ClCompile Include="mouse.cpp">
+      <Filter>Source Files\misc\mouse/kb</Filter>
     </ClCompile>
-    <ClCompile Include="ccheckbox.cpp">
-      <Filter>Source Files\misc\menu</Filter>
-    </ClCompile>
-    <ClCompile Include="cbutton.cpp">
-      <Filter>Source Files\misc\menu</Filter>
-    </ClCompile>
-    <ClCompile Include="cslider.cpp">
-      <Filter>Source Files\misc\menu</Filter>
+    <ClCompile Include="output.cpp">
+      <Filter>Source Files\misc</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -68,23 +62,11 @@
     <ClInclude Include="CMDS.h">
       <Filter>Header Files\misc</Filter>
     </ClInclude>
-    <ClInclude Include="mouse.h">
-      <Filter>Header Files\misc</Filter>
-    </ClInclude>
     <ClInclude Include="cmenu.h">
       <Filter>Header Files\misc\menu</Filter>
     </ClInclude>
-    <ClInclude Include="citem.h">
-      <Filter>Header Files\misc\menu</Filter>
-    </ClInclude>
-    <ClInclude Include="ccheckbox.h">
-      <Filter>Header Files\misc\menu</Filter>
-    </ClInclude>
-    <ClInclude Include="cbutton.h">
-      <Filter>Header Files\misc\menu</Filter>
-    </ClInclude>
-    <ClInclude Include="cslider.h">
-      <Filter>Header Files\misc\menu</Filter>
+    <ClInclude Include="mouse.h">
+      <Filter>Header Files\misc\mouse/kb</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

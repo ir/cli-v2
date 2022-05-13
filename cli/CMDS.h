@@ -9,10 +9,15 @@
 #include <vector>
 #include "output.h"
 #include "mouse.h"
+#include "cmenu.h"
 
 namespace CMDS
 {
 	void print(std::optional<std::string> data);
+	namespace cm
+	{
+		void setup(std::optional<std::string> data);
+	}
 	namespace console
 	{
 		void change_title(std::optional<std::string> data);
