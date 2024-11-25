@@ -17,7 +17,7 @@ void CMDS::console::change_title(std::optional<std::string> data)
 
 void CMDS::cm::setup(std::optional<std::string> data)
 {
-	std::shared_ptr<cmenu> pMenu = std::make_shared<cmenu>("cumhook");
+	std::shared_ptr<cmenu> pMenu = std::make_shared<cmenu>("menu");
 
 	pMenu->setup();
 }
